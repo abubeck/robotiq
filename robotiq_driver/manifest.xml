@@ -1,0 +1,14 @@
+<package>
+  <description brief="robotiq_driver">
+
+     robotiq_driver
+
+  </description>
+  <author>Johannes Bix</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/robotiq_driver</url>
+
+</package>
+
+
