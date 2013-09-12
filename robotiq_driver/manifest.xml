@@ -9,6 +9,9 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/robotiq_driver</url>
 
+  <depend package="cob_srvs"/>
+  <depend package="sensor_msgs"/>
+
 </package>
 
 

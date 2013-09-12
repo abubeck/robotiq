@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<launch>
+
+    <node name="robotiq_driver" pkg="robotiq_driver" type="SModelDriver.py" ns="gripper" output="screen">
+	<param name="ip_address" value="192.168.44.50"/>
+    </node>
+
+</launch>
+
