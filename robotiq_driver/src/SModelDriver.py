@@ -147,8 +147,9 @@ class SModelDriver:
 
   def detachGripper(self, req):
     res = TriggerResponse()
-    self.initialized = False
-    self.gripper.client.disconnectFromDevice()
+    if(self.initialized):
+      self.initialized = False
+      self.gripper.client.disconnectFromDevice()
     res.success.data = True
     return res
 

@@ -1,13 +1,14 @@
-<robot xmlns:xacro="http://ros.org/wiki/xacro">
-	<xacro:macro name="s-model_mesh" params="prefix">
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wki/xacro">
+	<xacro:macro name="s-model_mesh" params="prefix parent *origin">
 		<!-- link list -->
-		<link name="${prefix}palm">
+		<link name="${prefix}_link">
 			<visual>
 				<geometry>
 					<mesh filename="package://robotiq_description/meshes/s-model/visual/GRIPPER_OPEN_PALM.stl" />
 				</geometry>
 				<material name="green">
-					<color rgba="0 1 0 1"/>
+					<color rgba="0 0 0 1"/>
 				</material>
 			</visual>
 			<collision>
@@ -63,19 +64,24 @@
 		</link>
 		<!-- end of link list -->
 		<!-- joint list -->
+		<joint name="${prefix}palmjoint" type="fixed">
+			<insert_block name="origin" />
+                        <parent link="${parent}"/>
+                        <child link="${prefix}_link"/>
+                </joint>
 		<joint name="${prefix}joint_1" type="fixed">
-			<parent link="palm"/>
-			<child link="finger_1"/>
+			<parent link="${prefix}_link"/>
+			<child link="${prefix}finger_1"/>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 		</joint>
 		<joint name="${prefix}joint_2" type="fixed">
-			<parent link="palm"/>
-			<child link="finger_2"/>
+			<parent link="${prefix}_link"/>
+			<child link="${prefix}finger_2"/>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 		</joint>
 		<joint name="${prefix}joint_3" type="fixed">
-			<parent link="palm"/>
-			<child link="finger_3"/>
+			<parent link="${prefix}_link"/>
+			<child link="${prefix}finger_3"/>
 			<origin xyz="0 0 0" rpy="0 0 0"/>
 		</joint>
 		<!-- end of joint list -->
